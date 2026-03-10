@@ -134,7 +134,7 @@ def get_table_relationships(table_name):
 
 def get_calendar_date_variable(table_name):
     date_variable={
-        'ordenes_de_compra':'fecha_orden'
+        'ordenes_de_compra': 'fecha_orden'
     }
     date_variable=date_variable.get(table_name,'')
     return date_variable

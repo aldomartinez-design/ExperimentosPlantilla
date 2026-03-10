@@ -174,3 +174,15 @@ class AiQueries(db.Model,BaseMixin,AuditMixin):
     consulta = db.Column(db.Text)
     sql = db.Column(db.Text)
     respuesta = db.Column(db.Text)
+
+class Lotes(db.Model,BaseMixin,AuditMixin):
+    id_producto = db.Column(db.UUID(as_uuid=True), db.ForeignKey("productos.id"), nullable=False)
+    codigo_lote = db.Column(db.String(50), nullable=False)
+    cantidad = db.Column(db.Integer, default=0)
+    fecha_caducidad = db.Column(db.Date, nullable=False)
+    requiere_frio = db.Column(db.Boolean, default=False)
+
+    producto = db.relationship("Productos", backref="lotes", lazy=True)
+
+    
+
